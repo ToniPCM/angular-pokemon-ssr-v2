@@ -15,7 +15,7 @@ export const serverRoutes: ServerRoute[] = [
     },
   },
   {
-    path: 'pokemons/:id',
+    path: 'pokemon/:id',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       const names = await fetchPokemonNames(POKEMON_LIMIT);
