@@ -34,7 +34,7 @@ export class PokemonService {
 
   public getPokemonById(id: string): Observable<Pokemon> {
     // if (id < 0) return of();
-    if (isNaN(+id)) return of();
+    // if (isNaN(+id)) return of();
 
     return this.http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${id}`);
   }

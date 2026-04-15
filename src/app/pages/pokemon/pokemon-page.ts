@@ -44,7 +44,6 @@ export class PokemonPage implements OnInit {
 
           this.title.setTitle(pageTitle);
           this.meta.updateTag({ name: 'description', content: pageDescription });
-          this.meta.updateTag({ name: 'description', content: `Página del Pokémon ${name}` });
           this.meta.updateTag({ name: 'og:title', content: pageTitle });
           this.meta.updateTag({ name: 'og:description', content: pageDescription });
           this.meta.updateTag({ name: 'og:image', content: pageImage });
