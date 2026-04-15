@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { map, Observable, of, tap } from 'rxjs';
 import { SimplePokemon, PokemonAPIResponse, Pokemon } from '../interfaces';
 
@@ -8,6 +8,7 @@ import { SimplePokemon, PokemonAPIResponse, Pokemon } from '../interfaces';
 })
 export class PokemonService {
   private http = inject(HttpClient);
+  // public currentPage = signal(1);
 
   public loadPage(page: number): Observable<SimplePokemon[]> {
     if (page !== 0) {
@@ -27,6 +28,7 @@ export class PokemonService {
           return simplePokemons;
         }),
         // tap((pokemons) => console.log({ pokemons })),
+        // tap(() => this.currentPage.set(page)),
       );
   }
 

@@ -6,7 +6,7 @@ import { tap } from 'rxjs';
 import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-pokemon-page',
+  selector: 'pokemon-page',
   imports: [],
   templateUrl: './pokemon-page.html',
 })

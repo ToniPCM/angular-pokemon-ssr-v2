@@ -1,3 +1,4 @@
+import { Params } from './../../../../node_modules/@types/express-serve-static-core/index.d';
 import { ApplicationRef, Component, inject, OnInit, PendingTasks, signal } from '@angular/core';
 import { PokemonList } from '../../pokemons/components/pokemon-list/pokemon-list';
 import { PokemonListSkeleton } from '../../pokemons/components/pokemon-list-skeleton/pokemon-list-skeleton';
