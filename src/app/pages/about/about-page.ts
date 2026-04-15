@@ -1,0 +1,34 @@
+import { isPlatformBrowser } from '@angular/common';
+import { Component, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Meta, Title } from '@angular/platform-browser';
+
+@Component({
+  selector: 'page-about',
+  imports: [],
+  templateUrl: './about-page.html',
+})
+export class AboutPage implements OnInit {
+  private title = inject(Title);
+  private meta = inject(Meta);
+  private platform = inject(PLATFORM_ID);
+
+  ngOnInit(): void {
+    // if (isPlatformBrowser(this.platform)) {
+    //   document.title = 'Pricing Page';
+    // }
+
+    this.title.setTitle('About Page');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Éste es mi About Page',
+    });
+    this.meta.updateTag({
+      name: 'og:title',
+      content: 'About Page',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'Hola,Mundo,Fernando,Herrera,Curso,Angular,PRO',
+    });
+  }
+}

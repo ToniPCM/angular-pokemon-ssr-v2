@@ -1,0 +1,28 @@
+import { Component, inject, OnInit } from '@angular/core';
+import { Title, Meta } from '@angular/platform-browser';
+
+@Component({
+  selector: 'page-pricing',
+  imports: [],
+  templateUrl: './pricing-page.html',
+})
+export class PricingPage implements OnInit {
+  private title = inject(Title);
+  private meta = inject(Meta);
+
+  ngOnInit(): void {
+    this.title.setTitle('Pricing Page');
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Éste es mi Pricing Page',
+    });
+    this.meta.updateTag({
+      name: 'og:title',
+      content: 'Pricing Page',
+    });
+    this.meta.updateTag({
+      name: 'keywords',
+      content: 'Hola,Mundo,Fernando,Herrera,Curso,Angular,PRO',
+    });
+  }
+}
