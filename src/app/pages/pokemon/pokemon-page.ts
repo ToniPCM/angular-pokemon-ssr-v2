@@ -8,10 +8,10 @@ import { PokemonsService } from '../../pokemons/services/pokemons-service';
 
 @Component({
   selector: 'pokemon-page',
-  standalone: true,
+  // standalone: true,
   imports: [CommonModule],
   templateUrl: './pokemon-page.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokemonPage implements OnInit {
   private pokemonsService = inject(PokemonsService);
