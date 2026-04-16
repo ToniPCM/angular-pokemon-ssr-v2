@@ -13,7 +13,7 @@ import { PokemonsService } from '../../pokemons/services/pokemons-service';
   templateUrl: './pokemon-page.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class PokemonPage implements OnInit {
+export class PokemonPage implements OnInit {
   private pokemonsService = inject(PokemonsService);
   private route = inject(ActivatedRoute);
   private title = inject(Title);
