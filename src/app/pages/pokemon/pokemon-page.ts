@@ -21,12 +21,17 @@ export class PokemonPage implements OnInit {
 
   public pokemon = signal<Pokemon | null>(null);
 
+  public pokemonId = this.route.snapshot.paramMap.get('id');
+
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    if (!id) return;
+    // const id = this.route.snapshot.paramMap.get('id');
+    // if (!id) return;
+
+    if (!this.pokemonId) return;
 
     this.pokemonsService
-      .loadPokemon(id)
+      // .loadPokemon(id)
+      .loadPokemon(this.pokemonId)
       .pipe(
         tap(({ name, id }) => {
           const pageTitle = `#${id} - ${name}`;
