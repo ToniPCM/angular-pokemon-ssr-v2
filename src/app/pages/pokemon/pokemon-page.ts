@@ -33,6 +33,7 @@ export class PokemonPage implements OnInit {
       // .loadPokemon(id)
       .loadPokemon(this.pokemonId)
       .pipe(
+        tap((pokemon) => this.pokemon.set(pokemon)),
         tap(({ name, id }) => {
           const pageTitle = `#${id} - ${name}`;
           const pageDescription = `Página del Pokémon ${name}`;
@@ -53,6 +54,7 @@ export class PokemonPage implements OnInit {
           });
         }),
       )
-      .subscribe(this.pokemon.set);
+      .subscribe();
+    // .subscribe(this.pokemon.set);
   }
 }
