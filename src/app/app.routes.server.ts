@@ -19,7 +19,6 @@ export const serverRoutes: ServerRoute[] = [
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       const names = await fetchPokemonNames(POKEMON_LIMIT);
-      console.log({ names });
       return names.map((name) => ({ id: name }));
     },
   },
