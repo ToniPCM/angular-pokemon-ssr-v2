@@ -7,16 +7,15 @@ async function fetchPokemonNames(limit: number): Promise<string[]> {
 }
 
 export const serverRoutes: ServerRoute[] = [
-  // {
-  //   // path: 'pokemons/page/:page',
-  //   path: 'pokemons/page/:page',
-  //   renderMode: RenderMode.Prerender,
-  //   async getPrerenderParams() {
-  //     return Array.from({ length: POKEMON_LIMIT }, (_, i) => ({ page: (i + 1).toString() }));
-  //   },
-  // },
   {
-    path: 'pokemon/:id',
+    path: 'pokemons/page/:page',
+    renderMode: RenderMode.Prerender,
+    async getPrerenderParams() {
+      return Array.from({ length: POKEMON_LIMIT }, (_, i) => ({ page: (i + 1).toString() }));
+    },
+  },
+  {
+    path: 'pokemons/:id',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       const names = await fetchPokemonNames(POKEMON_LIMIT);

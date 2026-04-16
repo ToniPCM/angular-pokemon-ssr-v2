@@ -1,4 +1,4 @@
-export interface PokemonAPIResponse {
+export interface PokeAPIResponse {
   count: number;
   next: string;
   previous: string;

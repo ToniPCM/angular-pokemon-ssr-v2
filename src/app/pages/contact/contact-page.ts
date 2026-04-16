@@ -6,7 +6,7 @@ import { Title, Meta } from '@angular/platform-browser';
   imports: [],
   templateUrl: './contact-page.html',
 })
-export class ContactPage implements OnInit {
+export default class ContactPage implements OnInit {
   private title = inject(Title);
   private meta = inject(Meta);
 

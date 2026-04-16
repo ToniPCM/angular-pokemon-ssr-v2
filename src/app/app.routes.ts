@@ -1,34 +1,32 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // {
-  //   path: 'pokemons/page/:page',
-  //   loadComponent: () => import('./pages/pokemons/pokemons-page').then((c) => c.PokemonsPage),
-  // },
   {
-    path: 'pokemons',
-    loadComponent: () => import('./pages/pokemons/pokemons-page').then((c) => c.PokemonsPage),
+    path: 'pokemons/page/:page',
+    loadComponent: () => import('./pages/pokemons/pokemons-page'),
   },
   {
-    path: 'pokemon/:id',
-    loadComponent: () => import('./pages/pokemon/pokemon-page').then((c) => c.PokemonPage),
+    path: 'pokemons/:id',
+    loadComponent: () => import('./pages/pokemon/pokemon-page'),
   },
   {
     path: 'about',
-    loadComponent: () => import('./pages/about/about-page').then((c) => c.AboutPage),
+    loadComponent: () => import('./pages/about/about-page'),
   },
   {
     path: 'pricing',
-    loadComponent: () => import('./pages/pricing/pricing-page').then((c) => c.PricingPage),
+    loadComponent: () => import('./pages/pricing/pricing-page'),
   },
   {
     path: 'contact',
-    loadComponent: () => import('./pages/contact/contact-page').then((c) => c.ContactPage),
+    loadComponent: () => import('./pages/contact/contact-page'),
   },
+
   {
     path: '**',
     redirectTo: () => {
       // const authService = inject(AuthService)
+
       return 'about';
     },
   },

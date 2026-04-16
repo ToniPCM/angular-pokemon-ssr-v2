@@ -1,12 +1,15 @@
-import { Component, input } from '@angular/core';
-import { PokemonCard } from '../pokemon-card/pokemon-card';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+
 import { SimplePokemon } from '../../interfaces';
+import { PokemonCard } from '../pokemon-card/pokemon-card';
 
 @Component({
   selector: 'pokemon-list',
+  standalone: true,
   imports: [PokemonCard],
   templateUrl: './pokemon-list.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PokemonList {
-  pokemonList = input.required<SimplePokemon[]>();
+  public pokemons = input.required<SimplePokemon[]>();
 }

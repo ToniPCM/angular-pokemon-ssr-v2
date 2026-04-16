@@ -1,23 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable, signal } from '@angular/core';
-import { map, Observable, of, tap } from 'rxjs';
-import { SimplePokemon, PokemonAPIResponse, Pokemon } from '../interfaces';
+import { inject, Injectable } from '@angular/core';
+import { map, Observable, tap } from 'rxjs';
+import { PokeAPIResponse, Pokemon, SimplePokemon } from '../interfaces';
 
 @Injectable({
   providedIn: 'root',
 })
-export class PokemonService {
+export class PokemonsService {
   private http = inject(HttpClient);
-  // public currentPage = signal(1);
 
   public loadPage(page: number): Observable<SimplePokemon[]> {
+    // 1 = 0
+
     if (page !== 0) {
       --page;
     }
 
     page = Math.max(0, page);
+
     return this.http
-      .get<PokemonAPIResponse>(`https://pokeapi.co/api/v2/pokemon?offset=${page * 20}&limit=20`)
+      .get<PokeAPIResponse>(`https://pokeapi.co/api/v2/pokemon?offset=${page * 20}&limit=20`)
       .pipe(
         map((resp) => {
           const simplePokemons: SimplePokemon[] = resp.results.map((pokemon) => ({
@@ -27,15 +29,12 @@ export class PokemonService {
 
           return simplePokemons;
         }),
-        // tap((pokemons) => console.log({ pokemons })),
-        // tap(() => this.currentPage.set(page)),
+
+        // tap(console.log)
       );
   }
 
-  public getPokemonById(id: string): Observable<Pokemon> {
-    // if (id < 0) return of();
-    // if (isNaN(+id)) return of();
-
+  public loadPokemon(id: string) {
     return this.http.get<Pokemon>(`https://pokeapi.co/api/v2/pokemon/${id}`);
   }
 }
