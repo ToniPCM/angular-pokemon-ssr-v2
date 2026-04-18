@@ -28,11 +28,7 @@
             "server": "src/main.server.ts",
             "outputMode": "server",
             "security": {
-              "allowedHosts": [
-                "localhost",
-                "angular-pokemon-ssr-toni-v2.netlify.app",
-                "*.netlify.app"
-              ]
+              "allowedHosts": ["*"]
             },
             "ssr": {
               "entry": "src/server.ts"
